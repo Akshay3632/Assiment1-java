@@ -1,0 +1,57 @@
+public class MyNumber {
+    private int number;
+
+    // Default constructor
+    public MyNumber() {
+        this.number = 0;
+    }
+
+    // Parameterized constructor
+    public MyNumber(int number) {
+        this.number = number;
+    }
+
+    public boolean isNegative() {
+        return number < 0;
+    }
+
+    public boolean isPositive() {
+        return number > 0;
+    }
+
+    public boolean isOdd() {
+        return number % 2 != 0;
+    }
+
+    public boolean isEven() {
+        return number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Please provide exactly one integer as a command-line argument.");
+            return;
+        }
+
+        try {
+            int inputValue = Integer.parseInt(args[0]);
+            MyNumber myNum = new MyNumber(inputValue);
+
+            System.out.println("Number: " + myNum.number);
+            System.out.println("Is Negative: " + myNum.isNegative());
+            System.out.println("Is Positive: " + myNum.isPositive());
+            System.out.println("Is Odd: " + myNum.isOdd());
+            System.out.println("Is Even: " + myNum.isEven());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please provide a valid integer.");
+        }
+    }
+}
+
+output:-
+
+Number: 7
+Is Negative: false
+Is Positive: true
+Is Odd: true
+Is Even: false

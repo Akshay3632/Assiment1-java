@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+class MyDate {
+    int dd, mm, yy;
+
+    public MyDate(int dd, int mm, int yy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yy = yy;
+    }
+
+    public void displayDate() {
+        System.out.println(dd + "-" + mm + "-" + yy);
+    }
+}
+
+public class Person {
+    private int id;
+    private String name;
+    private MyDate dob;
+    private static int cnt = 1;
+
+    public Person() {
+        id = cnt++;
+        name = "";
+        dob = new MyDate(1, 1, 2000);  // Default date of birth
+    }
+
+    public Person(String name, MyDate dob) {
+        id = cnt++;
+        this.name = name;
+        this.dob = dob;
+    }
+
+    public void acceptDetails(Scanner input) {
+        System.out.print("Enter name: ");
+        name = input.next();
+
+        System.out.print("Enter date of birth (dd mm yyyy): ");
+        int dd = input.nextInt();
+        int mm = input.nextInt();
+        int yy = input.nextInt();
+        dob = new MyDate(dd, mm, yy);
+    }
+
+    public void displayDetails() {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.print("Date of Birth: ");
+        dob.displayDate();
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of persons: ");
+        int n = input.nextInt();
+
+        Person[] persons = new Person[n];
+
+        for (int i = 0; i < n; i++) {
+            persons[i] = new Person();
+            persons[i].acceptDetails(input);
+        }
+
+        System.out.println("\nPerson Details:");
+        for (Person person : persons) {
+            person.displayDetails();
+        }
+    }
+}
+
+output:-Enter the number of persons: 2
+
+Enter name: John
+Enter date of birth (dd mm yyyy): 10 5 1990
+
+Enter name: Alice
+Enter date of birth (dd mm yyyy): 15 8 1985
+
+Person Details:
+ID: 1
+Name: John
+Date of Birth: 10-5-1990
+
+ID: 2
+Name: Alice
+Date of Birth: 15-8-1985

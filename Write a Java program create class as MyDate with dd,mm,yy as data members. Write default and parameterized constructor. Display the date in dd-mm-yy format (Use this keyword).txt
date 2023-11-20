@@ -1,0 +1,44 @@
+public class MyDate {
+    int dd;
+    int mm;
+    int yy;
+
+    // Default constructor
+    public MyDate() {
+        this.dd = 1;
+        this.mm = 1;
+        this.yy = 2000;
+    }
+
+    // Parameterized constructor
+    public MyDate(int dd, int mm, int yy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yy = yy;
+    }
+
+    public void displayDate() {
+        System.out.println("Date: " + dd + "-" + mm + "-" + yy);
+    }
+
+    public static void main(String[] args) {
+        // Create an object using the default constructor
+        MyDate defaultDate = new MyDate();
+
+        // Create an object using the parameterized constructor
+        MyDate customDate = new MyDate(5, 11, 2023);
+
+        System.out.println("Default Date:");
+        defaultDate.displayDate();
+
+        System.out.println("Custom Date:");
+        customDate.displayDate();
+    }
+}
+
+output:-
+
+Default Date:
+Date: 1-1-2000
+Custom Date:
+Date: 5-11-2023
